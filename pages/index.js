@@ -1,5 +1,56 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { forwardRef } from "react";
+import HTMLFlipBook from "react-pageflip";
 
+const PageCover = forwardRef((props, ref) => {
+  return (
+    <div className="page page-cover" ref={ref} data-density="hard">
+      <div className="page-content">
+        <h2>{props.children}</h2>
+      </div>
+    </div>
+  );
+});
+const Page = forwardRef((props, ref) => {
+  return (
+    <div className="page" ref={ref}>
+      <div className="page-content">
+        <h2 className="page-header">Page header - {props.number}</h2>
+        <div className="page-image"></div>
+        <div className="page-text">{props.children}</div>
+        <div className="page-footer">{props.number + 1}</div>
+      </div>
+    </div>
+  );
+});
+
+function MyBook(props) {
+  return (
+    <HTMLFlipBook
+      width={350}
+      height={733}
+      size="stretch"
+      minWidth={315}
+      maxWidth={1000}
+      minHeight={400}
+      maxHeight={1533}
+      maxShadowOpacity={0.5}
+      showCover={true}
+      mobileScrollSupport={true}
+      className="flip-book"
+    >
+      <PageCover>Lorem ipsum...</PageCover>
+
+      <Page number={1}>Lorem ipsum...</Page>
+      <Page number={2}>Lorem ipsum...</Page>
+      <Page number={3}>Lorem ipsum...</Page>
+      <Page number={4}>Lorem ipsum...</Page>
+      <Page number={5}>Lorem ipsum...</Page>
+      <Page number={6}>Lorem ipsum...</Page>
+      <PageCover>Lorem ipsum...</PageCover>
+    </HTMLFlipBook>
+  );
+}
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -10,59 +61,21 @@ export default function Home() {
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
-          Welcome to{' '}
+          Welcome to{" "}
           <a className="text-blue-600" href="https://nextjs.org">
             Next.js!
           </a>
         </h1>
 
         <p className="mt-3 text-2xl">
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
             pages/index.js
           </code>
         </p>
 
         <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <MyBook />
         </div>
       </main>
 
@@ -73,10 +86,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
         </a>
       </footer>
     </div>
-  )
+  );
 }
