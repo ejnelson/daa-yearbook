@@ -6,7 +6,15 @@ import HTMLFlipBook from "react-pageflip";
 const PageCover = forwardRef((props, ref) => {
   return (
     <div className="page page-cover" ref={ref} data-density="hard">
-      <div className="page-content">
+      <div
+        className="page-content"
+        style={{
+          backgroundImage: 'url("/yearbookcoverbrown.jpg")',
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         <h2>{props.children}</h2>
       </div>
     </div>
@@ -46,13 +54,14 @@ function MyBook(props) {
         console.log("state", state);
       }}
     >
-      <PageCover>DAA yearbook </PageCover>
+      <PageCover> </PageCover>
+      <Page number={1}>Table of Contents</Page>
 
-      <Page number={1}>Lorem ipsum...</Page>
-      <Page number={2}>Lorem ipsum...</Page>
-      <Page number={3}>Lorem ipsum...</Page>
-      <Page number={4}>Lorem ipsum...</Page>
-      <Page number={5}>Lorem ipsum...</Page>
+      <Page number={1}>School Administrators</Page>
+      <Page number={2}>Faculty</Page>
+      <Page number={3}>Student Portraits</Page>
+      <Page number={4}>School Events/year in review</Page>
+      <Page number={5}>Student Groups</Page>
       <Page number={6}>Lorem ipsum...</Page>
       <PageCover>Lorem ipsum...</PageCover>
     </HTMLFlipBook>
@@ -78,7 +87,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      <main
+        className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center"
+        style={{ overflow: "hidden !important" }}
+      >
         <div
           style={{
             backgroundImage: 'url("/degenacademy.jpeg")',
@@ -109,10 +121,18 @@ export default function Home() {
           </div> */}
         </div>
 
-        <div
-          className={isYearBookOpen ? "openYearbook" : "unopenedYearbook"}
-          onClick={onClickYearBook}
-        ></div>
+        {!isYearBookDisplayed ? (
+          <div
+            className={isYearBookOpen ? "openYearbook" : "unopenedYearbook"}
+            onClick={onClickYearBook}
+            style={{
+              backgroundImage: 'url("/yearbookcoverbrown.jpg")',
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "90%",
+            }}
+          ></div>
+        ) : null}
         {isYearBookDisplayed ? (
           <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
             <MyBook />
