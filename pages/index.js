@@ -46,7 +46,7 @@ function MyBook(props) {
         console.log("state", state);
       }}
     >
-      <PageCover>Lorem ipsum...</PageCover>
+      <PageCover>DAA yearbook </PageCover>
 
       <Page number={1}>Lorem ipsum...</Page>
       <Page number={2}>Lorem ipsum...</Page>
@@ -72,20 +72,43 @@ export default function Home() {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: 'url("/degenacademy.jpeg")',
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
-      className="flex flex-col items-center justify-center min-h-screen py-2"
-    >
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>DAA Yearbook</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <div
+          style={{
+            backgroundImage: 'url("/degenacademy.jpeg")',
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            position: "fixed",
+            marginLeft: "auto",
+            height: 600,
+            width: 1200,
+          }}
+        >
+          {/* <div id="leaves" style={{ zIndex: 2 }}>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </div> */}
+        </div>
+
         <div
           className={isYearBookOpen ? "openYearbook" : "unopenedYearbook"}
           onClick={onClickYearBook}
