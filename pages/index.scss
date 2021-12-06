@@ -128,7 +128,7 @@
   width: 14px;
   background-color: #45342a;
   transform: rotate(151deg) skew(49deg, 6deg);
-  top: calc(50% + 181px);
+  top: calc(50% + 231px);
   left: calc(50% + 155px);
   animation: pulse 1.5s ease-in-out infinite;
   transition: transform 1s ease-in-out, width 1s ease-in-out,
@@ -143,7 +143,7 @@
   transform: rotate(0deg) skew(0deg, -0deg);
   width: 315px;
   height: 420px;
-  top: calc(50% - 245px);
+  top: calc(50% - 198px);
   left: calc(50% - 157px);
   text-align: center;
   transition: transform 1s ease-in-out, width 1s ease-in-out,
@@ -152,7 +152,7 @@
   @media only screen and (min-width: 992px) {
     width: 447px;
     height: 597px;
-    top: calc(50% - 335px);
+    top: calc(50% - 287px);
     left: 50%;
   }
 }
