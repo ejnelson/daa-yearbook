@@ -18,7 +18,7 @@ export const TableOfContents = () => {
 
   return (
     <div>
-      <Section page={2}>Directory</Section>
+      <Section page={2}>Faculty and Staff</Section>
       <Section page={3}>Principal</Section>
       <Section page={4}>Faculty</Section>
       <Section page={5}>Student Council</Section>
